@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Store Home Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+        <a href="index.html">
+          <img src="/assets/online shop.png" alt="">
+        </a>
+    </div>
+    <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Collections</a>
+            <div class="dropdown">
+                <a href="#">Men</a>
+                <a href="#">Women</a>
+                <a href="#">Accessories</a>
+            </div>
+        </li>
+        <li><a href="index.html">New Arrivals</a></li>
+        <li><a href="index.html">Sales</a></li>
+        <li><a href="index.html">Contacts</a></li>
+        <li>
+            <button id="loginLink" class="btn loginLink">
+              <a href="login.html">Login</a>
+            </button>
+        </li>
+        <li class="user-menu" id="userMenu">
+            <button id="avatarBtn" class="avatar-btn">
+                <span id="avatarLetter">U</span>
+            </button>
+            <ul class="dropdown" id="dropdownMenu">
+                <li>
+                  <a href="profile.html">Profile</a> 
+                </li>
+                <li>
+                  <button id="logoutBtn" class="btn logoutBtn">Logout</button>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="search-container">
+        <input type="text" placeholder="Search Fashion....">
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    <div class="hamburger" id="hamburger"><i class="fa-solid fa-bars"></i></div>
+</nav>
+
+<!-- Hero Carousal -->
+
+<div class="wrap">
+    <div class="carousal">
+        <div class="viewport" id="viewport">
+            <div class="track" id="track">
+                <div class="slide">
+                    <img src="https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg" alt="Slide-1">
+                    <div class="slide-content">
+                        <h2>Summer Collections</h2>
+                        <p>Explore the latest trends in fashion.</p>
+                        <button>Shop Now</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1200&q=80" alt="Slide-2">
+                    <div class="slide-content">
+                        <h2>Summer Collections</h2>
+                        <p>Explore the latest trends in fashion.</p>
+                        <button>Shop Now</button>
+                    </div>
+                </div>
+            <div class="slide">
+                    <img src="https://images.pexels.com/photos/1462637/pexels-photo-1462637.jpeg" alt="Slide-3">
+                    <div class="slide-content">
+                        <h2>Summer Collections</h2>
+                        <p>Explore the latest trends in fashion.</p>
+                        <button>Shop Now</button>
+                    </div>
+                </div>
+            <div class="slide">
+                    <img src="https://images.pexels.com/photos/932401/pexels-photo-932401.jpeg" alt="Slide-4">
+                    <div class="slide-content">
+                        <h2>Summer Collections</h2>
+                        <p>Explore the latest trends in fashion.</p>
+                        <button>Shop Now</button>
+                    </div>    
+                </div>
+    </div>
+
+    <button class="btn prev" id="prev">
+      <i class="fa-solid fa-arrow-left"></i>
+    </button>
+    <button class="btn next" id="next">
+      <i class="fa-solid fa-arrow-right"></i>
+    </button>
+    <div class="dots" id="dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="products-container">
+    <div class="controls">
+        <div id="filters">
+        <!-- <button class="filter-btn">All</button>
+            <button class="filter-btn">Men Clothing</button>
+            <button class="filter-btn">Jewellery</button> -->
+        </div>
+        <select id="sort" class="filter-btn">
+            <option value="">Sort By</option>
+            <option value="price-asc">Price: Low -> High</option>
+            <option value="price-desc">Price: High -> Low</option>
+            <option value="name-asc">Name: A -> Z</option>
+            <option value="name-desc">Name: Z -> A</option>
+        </select>
+    </div>
+    <div id="products">
+     <!-- <div class="card">
+            <img src="https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_t.png" alt="product image">
+            <h3><a href="product.html?id=${p.id}">This is shirt</a></h3>
+            <p><b>$235</b></p>
+        </div> -->
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="logo">
+                <img src="/assets/online shop.png" alt="">
+            </div>
+            <p>Trendy styles, elegant designs, all in one place.</p>
+            <div class="social-icons">
+                <a href="#">
+                    <img src="https://img.icons8.com/ios-glyphs/30/ffffff/facebook-new.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="https://img.icons8.com/ios-glyphs/30/ffffff/instagram-new.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="https://img.icons8.com/ios-glyphs/30/ffffff/twitter.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="https://img.icons8.com/ios-glyphs/30/ffffff/pinterest.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-group">
+                <h4>Shop</h4>
+                <a href="#">New Arrivals</a>
+                <a href="#">Best Seller</a>
+                <a href="#">Men</a>
+                <a href="#">Women</a>
+                <a href="#">Sale</a>
+            </div>
+            <div class="link-group">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Career</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="link-group">
+                <h4>Support</h4>
+                <a href="#">FAQ</a>
+                <a href="#">Shipping</a>
+                <a href="#">Returns</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Online Fashion Shop. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+    const track = document.getElementById("track");
+    const prevBtn = document.getElementById("prev");
+    const nextBtn = document.getElementById("next");
+    const dotsWrap = document.getElementById("dots");
+    const slides = Array.from(track.children);
+    const slideCount = slides.length;
+
+    let index = 0;
+    let width = document.querySelector(".viewport").clientWidth;
+
+    function setPosition() {
+        track.style.transform = `translateX(${-width * index}px)`;
+    }
+
+    window.addEventListener("resize", ()=>{
+        width = document.querySelector(".viewport").clientWidth;
+        setPosition();
+    })
+
+    function updateDots() {
+        dotsWrap.querySelectorAll("button").forEach((d, i)=>{
+            d.setAttribute("aria-current", i === index ? "true": "false");
+        });
+    }
+
+    function goTo(i) {
+        if(i < 0) index = slideCount - 1;
+        else if(i >= slideCount) index = 0;
+        else index = i;
+        setPosition();
+        updateDots();
+    }
+    prevBtn.addEventListener("click", () => goTo(index - 1));
+    nextBtn.addEventListener("click", () => goTo(index + 1));
+
+    for(let i = 0; i<slideCount; i++){
+        const b = document.createElement("button");
+        b.className = "dot";
+        b.addEventListener("click", () => goTo(i));
+        dotsWrap.appendChild(b);
+    }
+
+    goTo(0);
+
+    let products = [];
+    let filteredProducts = [];
+
+    async function fetchData() {
+        try {
+            let res = await fetch("https://fakestoreapi.com/products");
+            if (!res.ok) throw new Error(`HTTp error! Status : ${res.status}`);
+
+            let data = await res.json();
+            products = data;
+            filteredProducts = [...products];
+            createFilterButtons();
+            displayProducts(filteredProducts);
+        } catch (error) {
+          console.log(error);  
+        }
+    }
+
+    function createFilterButtons() {
+        const filtersContainer = document.getElementById("filters");
+        filtersContainer.innerHTML = "";
+
+        const categories = ["All", ...new Set(products.map((p) => p.category))];
+
+        categories.forEach((cat) => {
+            const btn = document.createElement("button");
+            btn.className = "filter-btn";
+            btn.textContent = cat;
+            if (cat === "All") btn.classList.add("active");
+
+            btn.addEventListener("click", () => {
+                document
+                  .querySelectorAll(".filter-btn")
+                  .forEach((b) => b.classList.remove("active"));
+                btn.classList.add("active");
+
+                filteredProducts = 
+                  cat === "All" 
+                    ? [...products] 
+                    : products.filter((p) => p.category === cat);
+
+                applySort();
+                displayProducts(filteredProducts);   
+            });
+
+            filtersContainer.appendChild(btn);
+        });
+
+        document.getElementById('sort').addEventListener("change", ()=> {
+          applySort();
+          displayProducts(filteredProducts);   
+        });
+    }
+
+    function applySort() {
+        const sortValue = document.getElementById("sort").value;
+        if (!sortValue) return;
+
+       // if (sortValue === "price-asc") {
+      //    filteredProducts.sort((a, b) => a.price - b.price);
+     //  }
+
+        switch (sortValue) {
+            case "price-asc":
+              filteredProducts.sort((a, b) => a.price - b.price);
+              break;
+            case "price-desc":
+              filteredProducts.sort((a, b) => b.price - a.price);
+              break;
+            case "name-asc":
+              filteredProducts.sort((a, b) => a.title.localeCompare(b.title));
+              break;
+            case "name-desc":
+              filteredProducts.sort((a, b) => b.title.localeCompare(a.title));
+              break;       
+
+            default:
+              break;  
+        }
+    }
+
+    function displayProducts(list) {
+
+        const container = document.getElementById("products");
+        container.innerHTML = "";
+
+        list.forEach((p, index) => {
+            const card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML = `
+            <img
+            src="${p.image}" 
+            alt="${p.title}"
+            />
+            <h3><a href="product.html?id=${p.id}">${p.title}</a></h3>
+            <p><b>$${p.price}</b></p>
+            `;
+
+            container.appendChild(card);
+            setTimeout(() => {
+                card.classList.add("show");
+            }, index * 50);
+        });
+    }
+
+    fetchData();
+</script>
+</body>
+</html>

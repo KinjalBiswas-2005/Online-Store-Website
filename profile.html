@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .container {
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            margin: 0;
+        }
+
+        .profile-container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            width: 380px;
+            transition: 0.3s ease;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: tomato;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 15px;
+            box-shadow: 0 5px 15px rgba(255, 99, 71, 0.5);
+            text-transform: capitalize;
+        }
+
+        h2 {
+            margin: 10px 0;
+            color: #666;
+            font-size: 24px;
+            text-transform: capitalize;
+        }
+
+        p {
+            margin: 5px 0 20px;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 10px 5px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background: tomato;
+            color: #fff;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #e85b5b;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            width: 320px;
+            /*text-align: center;*/
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }            
+        }
+
+        .modal-content h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .modal-content label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .modal-content .modal-actions {
+            text-align: right;
+        }
+
+        .modal-actions button {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .cancel-btn {
+            background: #ccc;
+        }
+
+        .save-btn {
+            background: tomato;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+        <a href="index.html">
+          <img src="/assets/online shop.png" alt="">
+        </a>
+    </div>
+    <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Collections</a>
+            <div class="dropdown">
+                <a href="#">Men</a>
+                <a href="#">Women</a>
+                <a href="#">Accessories</a>
+            </div>
+        </li>
+        <li><a href="index.html">New Arrivals</a></li>
+        <li><a href="index.html">Sales</a></li>
+        <li><a href="index.html">Contacts</a></li>
+        <li>
+            <button id="loginLink" class="btn loginLink">
+              <a href="login.html">Login</a>
+            </button>
+        </li>
+        <li class="user-menu" id="userMenu">
+            <button id="avatarBtn" class="avatar-btn">
+                <span id="avatarLetter">U</span>
+            </button>
+            <ul class="dropdown" id="dropdownMenu">
+                <li>
+                  <a href="profile.html">Profile</a> 
+                </li>
+                <li>
+                  <button id="logoutBtn" class="btn logoutBtn">Logout</button>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="search-container">
+        <input type="text" placeholder="Search Fashion....">
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    <div class="hamburger" id="hamburger"><i class="fa-solid fa-bars"></i>
+    </div>
+</nav>
+
+<div class="container">
+   <div class="profile-container">
+    <div class="avatar" id="profileAvatar">U</div>
+    <h2 id="profileName">Guest</h2>
+    <p id="profileEmail" class="profileEmail">guest@gmail.com</p>
+    <button class="btn" id="editBtn">Edit Profile</button>
+    <button class="btn" id="profileLogoutBtn">Logout</button>
+   </div>
+   <div class="modal" id="editModal">
+    <div class="modal-content">
+        <h3>Edit Profile</h3>
+        <label for="editUsername">Username</label>
+        <input type="text" id="editUsername" />
+        <label for="editEmail">Email</label>
+        <input type="email" id="editEmail" />
+        <label for="editPassword">Password</label>
+        <input type="password" id="editPassword" />
+        <div class="modal-actions">
+            <button class="cancel-btn" id="cancelEdit">Cancel</button>
+            <button class="save-btn" id="saveEdit">Save</button>
+        </div>        
+    </div>
+   </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="logo">
+                <img src="/assets/online shop.png" alt="">
+            </div>
+            <p>Trendy styles, elegant designs, all in one place.</p>
+            <div class="social-icons">
+                <a href="#">
+                    <img src="https://img.icons8.com/ios-glyphs/30/ffffff/facebook-new.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="https://img.icons8.com/ios-glyphs/30/ffffff/instagram-new.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="https://img.icons8.com/ios-glyphs/30/ffffff/twitter.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="https://img.icons8.com/ios-glyphs/30/ffffff/pinterest.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="link-group">
+                <h4>Shop</h4>
+                <a href="#">New Arrivals</a>
+                <a href="#">Best Seller</a>
+                <a href="#">Men</a>
+                <a href="#">Women</a>
+                <a href="#">Sale</a>
+            </div>
+            <div class="link-group">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Career</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="link-group">
+                <h4>Support</h4>
+                <a href="#">FAQ</a>
+                <a href="#">Shipping</a>
+                <a href="#">Returns</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Online Fashion Shop. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+    const profileAvatar = document.getElementById("profileAvatar");
+    const profileName = document.getElementById("profileName");
+    const profileEmail = document.getElementById("profileEmail");
+    const editBtn = document.getElementById("editBtn");
+    const profileLogoutBtn = document.getElementById("profileLogoutBtn");
+
+    const editModal = document.getElementById("editModal");
+    const editUsername = document.getElementById("editUsername");
+    const editEmail = document.getElementById("editEmail");
+    const editPassword = document.getElementById("editPassword");
+    const saveEdit = document.getElementById("saveEdit");
+    const cancelEdit = document.getElementById("cancelEdit");
+
+    profileLogoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("user");
+        alert("Logout Successfully!!");
+        window.location.href = "login.html";
+    });
+
+    function loadProfile() {
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (user) {
+            profileName.textContent = user.username || "User";
+            profileEmail.textContent = user.email || "User@gmail.com";
+            profileAvatar.textContent = user.username.slice(0, 1) || "U";
+        } else {
+            alert("You must login first!");
+            window.location.href = "login.html";
+        }
+    }
+
+    editBtn.addEventListener("click", () => {
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (user) {
+            editUsername.value = user.username || "";
+            editEmail.value = user.email || "";
+            editPassword.value = user.password || "";
+        }
+        editModal.style.display = "flex"; 
+    });
+
+    saveEdit.addEventListener("click", () => {
+        const updateUser = {
+            username: editUsername.value,
+            email: editEmail.value,
+            password: editPassword.value,
+        };
+        localStorage.setItem("user", JSON.stringify(updateUser));
+        alert("Profile updated successfully!!");
+        editModal.style.display = "none";
+        loadProfile();
+    });
+        cancelEdit.addEventListener("click", () => {
+            editModal.style.display = "none";
+        });
+
+        window.addEventListener("click", (e) => {
+            if (e.target === editModal) {
+                editModal.style.display = "none";
+            }
+        });
+    loadProfile();
+</script>    
+</body>
+</html>
